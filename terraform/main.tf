@@ -16,13 +16,13 @@ provider "aws" {
   skip_metadata_api_check    = true
   endpoints {
     s3 = "https://s3.localhost.localstack.cloud:4566"
+    sqs = "https://localhost.localstack.cloud:4566"
   }
 }
 
 module "s3_bucket" {
   source = "./modules/s3_bucket"
   bucket_name = "my-bucket"
-  acl = "private"
 }
 
 module "sqs_queue" {
