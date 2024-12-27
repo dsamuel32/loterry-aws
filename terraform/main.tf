@@ -17,6 +17,8 @@ provider "aws" {
   endpoints {
     s3 = "https://s3.localhost.localstack.cloud:4566"
     sqs = "https://localhost.localstack.cloud:4566"
+    iam = "https://localhost.localstack.cloud:4566"
+    lambda = "https://localhost.localstack.cloud:4566"
   }
 }
 
@@ -28,4 +30,8 @@ module "s3_bucket" {
 module "sqs_queue" {
   source = "./modules/sqs"
   sqs_name = "retrieve-draws"
+}
+
+module "lambda_test" {
+  source = "./modules/lambda"
 }
